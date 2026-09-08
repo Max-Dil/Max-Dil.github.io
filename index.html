@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Донэйрпром | Промышленное компрессорное оборудование</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/index.css?v=1.8">
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <div class="logo-block">
+                    <a href="#home" class="logo">
+                        <img src="images/logo.svg" alt="ООО «Донэйрпром»">
+                    </a>
+                    <div class="header-contacts">
+                        <a href="tel:+79991234567" class="contact-phone">+7 (999) 123-45-67</a>
+                        <a href="mailto:info@donairprom.ru" class="contact-email">info@donairprom.ru</a>
+                    </div>
+                </div>
+                <nav class="nav-desktop">
+                    <a href="#home">Главная</a>
+                    <a href="#about">О компании</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+
+                <button class="btn" onclick="document.getElementById('request-form').scrollIntoView({behavior: 'smooth'})">Оставить заявку</button>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">≡</button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#home" class="mobile-link">Главная</a>
+            <a href="#about" class="mobile-link">О компании</a>
+            <a href="#services" class="mobile-link">Услуги</a>
+            <a href="#contacts" class="mobile-link">Контакты</a>
+            <button class="btn mobile-link" onclick="document.getElementById('request-form').scrollIntoView({behavior: 'smooth'})">Оставить заявку</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div>
+                <h1>Инновационные технологии подготовки сжатого воздуха</h1>
+                <p>Обеспечим ваше предприятие стабильным сжатым воздухом. Проектирование, поставка, монтаж и сервисное обслуживание компрессорного оборудования.</p>
+                <button class="btn btn-accent" onclick="document.getElementById('request-form').scrollIntoView({behavior: 'smooth'})">Получить консультацию</button>
+            </div>
+            <div class="hero-img-container">
+                <img src="compressor.png" alt="Промышленный компрессор" class="responsive-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="postavka.png" alt="Поставка оборудования">
+                    </div>
+                    <h3>Поставка оборудования</h3>
+                    <p>Прямые поставки компрессоров, адсорбционных и рефрижераторных осушителей.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="proektirovanie.png" alt="Проектирование и монтаж">
+                    </div>
+                    <h3>Проектирование и монтаж</h3>
+                    <p>Разработка проекта с нуля и интеграция оборудования в вашу производственную линию.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="obslychivanie.png" alt="Сервисное обслуживание">
+                    </div>
+                    <h3>Сервисное обслуживание</h3>
+                    <p>Ремонт машин и оборудования, поставка оригинальных комплектующих.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="aydit.png" alt="Аудит трубопроводов">
+                    </div>
+                    <h3>Аудит трубопроводов</h3>
+                    <p>Анализ систем сжатого воздуха, газов и вакуума для повышения энергоэффективности.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="aydit.png" alt="Аудит трубопроводов">
+                    </div>
+                    <h3>Аудит трубопроводов</h3>
+                    <p>Анализ систем сжатого воздуха, газов и вакуума для повышения энергоэффективности.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="aydit.png" alt="Аудит трубопроводов">
+                    </div>
+                    <h3>Аудит трубопроводов</h3>
+                    <p>Анализ систем сжатого воздуха, газов и вакуума для повышения энергоэффективности.</p>
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+    </section>
+
+    <section class="section about-section" id="about">
+        <div class="container about-grid">
+            <div class="hero-img-container">
+                <img src="enginner.png" alt="Инженер / Команда ООО Донэйрпром" class="responsive-img">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">О компании ООО «Донэйрпром»</h2>
+                <p>Мы являемся экспертами в области промышленных компрессоров и пневматических систем. Наш опыт позволяет предлагать максимально эффективные решения самых сложных производственных задач.</p>
+                <p>Не навязываем лишних услуг — предлагаем только то, что нужно для стабильной и бесперебойной работы вашего производства. Мы не работаем по шаблону, а подбираем решения под ваш запрос и бюджет.</p>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-btn">
+                            Индивидуальный подход
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Мы детально изучаем специфику вашего предприятия перед предложением решения. Учитываем требуемые мощности, условия эксплуатации и бюджет, чтобы подобрать оптимальное оборудование без избыточных затрат.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-btn">
+                            Полный цикл: от проекта до запуска
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Берем на себя все этапы работы: разработку технического задания, проектирование пневмолиний, логистику, профессиональный монтаж, пусконаладочные работы и обучение персонала.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-btn">
+                            Официальная гарантия и ответственность по договору
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>На все поставляемое оборудование и выполненные работы предоставляется документальная гарантия. Мы юридически закрепляем сроки и качество в официальном договоре.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section request-section" id="request-form">
+        <div class="container">
+            <h2 class="section-title">Остались вопросы?</h2>
+            <div class="contact-form">
+                <p style="text-align: center; margin-bottom: 20px;">Заполните форму и мы свяжемся с вами для консультации.</p>
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="name">Ваше Имя и Фамилия</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="+7 (999) 000-00-00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Удобное время для звонка</label>
+                        <input type="text" id="time" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Текст обращения</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Опишите вашу потребность..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-accent" style="width: 100%;">Отправить данные</button>
+                    <p style="font-size: 11px; text-align: center; margin-top: 15px; color: #666;">
+                        Нажимая на кнопку, вы соглашаетесь с
+                        <a href="privacy.html" class="privacy-link">политикой обработки персональных данных</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ООО «Донэйрпром»</h4>
+                    <p>Надежное компрессорное оборудование для вашего бизнеса.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="privacy.html" class="privacy-link" style="color:#999;">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Реквизиты</h4>
+                    <ul>
+                        <li>ИНН: 6161150953</li>
+                        <li>КПП: 616101001</li>
+                        <li>ОГРН: 1246100010936</li>
+                        <li>Генеральный директор:<br>Хавричев А. С.</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>344068, г. Ростов-на-Дону,<br>Марксистский пер., д. 38</li>
+                        <li>Тел: +7 (999) 123-45-67</li>
+                        <li>Email: info@donairprom.ru</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2024-2026 ООО «Донэйрпром». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
