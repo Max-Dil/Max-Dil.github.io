@@ -38,9 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const leadForm = document.getElementById('leadForm');
+    // Получатели заявок с формы (Юрий и Алексей) — замените на реальные адреса
+    const LEAD_RECIPIENTS = ['yuriy@donairprom.ru', 'info@donairprom.ru'];
+
     leadForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Спасибо! Ваша заявка успешно отправлена. Менеджер свяжется с вами в указанное время.');
+        const v = (id) => document.getElementById(id).value.trim();
+        const body = `Имя: ${v('name')}\nТелефон: ${v('phone')}\nУдобное время для звонка: ${v('time')}\n\n${v('message')}`;
+        const subject = 'Заявка с сайта ДонЭйрПром';
+        window.location.href = `mailto:${LEAD_RECIPIENTS.join(',')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         leadForm.reset();
     });
 
