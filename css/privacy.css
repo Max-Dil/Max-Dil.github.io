@@ -1,0 +1,395 @@
+.privacy-page {
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+.privacy-hero {
+    background: linear-gradient(135deg, #eef3f8 0%, #fff 100%);
+    padding: 40px 0 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumbs {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.breadcrumbs a {
+    color: var(--primary-color);
+    transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.breadcrumbs .current {
+    color: #888;
+}
+
+.privacy-hero h1 {
+    font-size: 30px;
+    color: var(--secondary-color);
+    line-height: 1.2;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    max-width: 900px;
+    margin-bottom: 16px;
+}
+
+.privacy-lead {
+    font-size: 15px;
+    color: #555;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+.privacy-content {
+    padding: 40px 0 60px;
+}
+
+.privacy-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.privacy-toc {
+    position: sticky;
+    top: 95px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(16, 38, 64, .06);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    min-width: 0;
+}
+
+.privacy-toc-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--secondary-color);
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.privacy-toc ol {
+    list-style: none;
+    counter-reset: item;
+    padding: 0;
+    margin: 0;
+}
+
+.privacy-toc li {
+    margin-bottom: 6px;
+}
+
+.privacy-toc a {
+    display: block;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #555;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+    border-left: 3px solid transparent;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.privacy-toc a:hover {
+    background-color: #f4f6f8;
+    color: var(--primary-color);
+}
+
+.privacy-toc a.active {
+    background-color: #eaf1f9;
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.privacy-article {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 14px rgba(16, 38, 64, .06);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.policy-section {
+    padding-top: 8px;
+    padding-bottom: 20px;
+    scroll-margin-top: 90px;
+    min-width: 0;
+}
+
+.policy-section + .policy-section {
+    border-top: 1px solid var(--border-color);
+    margin-top: 24px;
+    padding-top: 32px;
+}
+
+.policy-section h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--secondary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.policy-section p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #3a3a3a;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.policy-section p:last-child {
+    margin-bottom: 0;
+}
+
+.policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 14px;
+}
+
+.policy-section ul li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #3a3a3a;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.policy-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.policy-section a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.policy-section a:hover {
+    color: var(--secondary-color);
+}
+
+.policy-table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+}
+
+.policy-table th,
+.policy-table td {
+    text-align: left;
+    padding: 14px 16px;
+    vertical-align: top;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border-color);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.policy-table th {
+    width: 200px;
+    background: #f4f6f8;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.policy-table tr:last-child th,
+.policy-table tr:last-child td {
+    border-bottom: none;
+}
+
+.policy-table td {
+    color: #3a3a3a;
+}
+
+.privacy-back {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.btn-back {
+    display: inline-block;
+}
+
+@media (max-width: 992px) {
+    .privacy-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .privacy-toc {
+        position: static;
+        max-height: none;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .privacy-toc-title {
+        margin: 0;
+        padding: 16px 20px;
+        border-bottom: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .privacy-toc-title::after {
+        content: '+';
+        font-size: 18px;
+        font-weight: 400;
+        transition: transform 0.3s;
+    }
+
+    .privacy-toc.open .privacy-toc-title::after {
+        transform: rotate(45deg);
+    }
+
+    .privacy-toc ol {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        padding: 0 16px;
+    }
+
+    .privacy-toc.open ol {
+        max-height: 1200px;
+        padding: 8px 16px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .privacy-hero {
+        padding: 28px 0 24px;
+    }
+
+    .privacy-hero h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .privacy-lead {
+        font-size: 14px;
+    }
+
+    .privacy-content {
+        padding: 24px 0 40px;
+    }
+
+    .privacy-article {
+        padding: 20px 14px;
+    }
+
+    .policy-section h2 {
+        font-size: 17px;
+        margin-bottom: 14px;
+    }
+
+    .policy-section p,
+    .policy-section ul li {
+        font-size: 14px;
+    }
+
+    .policy-section + .policy-section {
+        margin-top: 18px;
+        padding-top: 24px;
+    }
+
+    .policy-table-wrap {
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    .policy-table {
+        table-layout: auto;
+        min-width: 0;
+        width: 100%;
+        font-size: 12.5px;
+    }
+
+    .policy-table,
+    .policy-table tbody,
+    .policy-table tr,
+    .policy-table th,
+    .policy-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .policy-table tr {
+        border-bottom: 1px solid var(--border-color);
+        padding: 4px 0 12px;
+    }
+
+    .policy-table tr:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .policy-table th {
+        background: transparent;
+        padding: 10px 12px 4px;
+        border-bottom: none;
+        font-size: 11.5px;
+    }
+
+    .policy-table td {
+        padding: 4px 12px 6px;
+        border-bottom: none;
+        font-size: 13px;
+    }
+}
