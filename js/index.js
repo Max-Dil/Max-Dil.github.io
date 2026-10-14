@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hero: «Подробнее» / «Скрыть» (работает только на мобильных, на десктопе кнопка скрыта через CSS)
     const heroMore = document.getElementById('heroMore');
     const heroMoreBtn = document.getElementById('heroMoreBtn');
 
