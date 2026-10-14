@@ -271,6 +271,10 @@ header {
     color: #555555;
 }
 
+.hero-more-btn {
+    display: none;
+}
+
 .hero-img-container {
     height: 400px;
     width: 100%;
@@ -626,7 +630,6 @@ textarea.form-control {
     box-shadow: 0 0 0 3px rgba(0, 74, 140, 0.1);
 }
 
-/* Переключатель физлицо / юрлицо */
 .radio-group {
     display: flex;
     gap: 20px;
@@ -762,7 +765,7 @@ footer {
     }
 
     .request-section {
-        background-position: 15% center;
+        background: var(--bg-light);
     }
 
     .header-main { gap: 8px; }
@@ -772,6 +775,28 @@ footer {
     .footer-col li { overflow-wrap: anywhere; }
     .card, .contact-form { min-width: 0; }
     .contact-form { padding: 25px 20px; }
+
+    .hero-more {
+        display: none;
+    }
+
+    .hero-more.open {
+        display: inline;
+    }
+
+    .hero-more-btn {
+        display: block;
+        margin-top: 10px;
+        padding: 0;
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 
     .grid-3 {
         display: flex;
@@ -847,6 +872,14 @@ footer {
         gap: 12px;
         font-size: 13px;
         margin-right: 5px;
+    }
+
+    .header-contacts {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
     }
 
     .header-contacts .contact-phone {

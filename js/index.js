@@ -40,6 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hero: «Подробнее» / «Скрыть» (работает только на мобильных, на десктопе кнопка скрыта через CSS)
+    const heroMore = document.getElementById('heroMore');
+    const heroMoreBtn = document.getElementById('heroMoreBtn');
+
+    if (heroMore && heroMoreBtn) {
+        heroMoreBtn.addEventListener('click', () => {
+            const isOpen = heroMore.classList.toggle('open');
+            heroMoreBtn.textContent = isOpen ? 'Скрыть' : 'Подробнее';
+            heroMoreBtn.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
     const API_URL = 'https://nesworld.ru/donairprom/api/lead';
 
     const leadForm = document.getElementById('leadForm');
