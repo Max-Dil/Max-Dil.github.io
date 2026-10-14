@@ -1,10 +1,11 @@
-
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    preloader.style.opacity = '0';
-    setTimeout(() => {
-        preloader.style.display = 'none';
-    }, 500);
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,22 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNav = document.getElementById('mobileNav');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-    });
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
         });
-    });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+    }
 
     const accordions = document.querySelectorAll('.accordion-btn');
-
     accordions.forEach(acc => {
         acc.addEventListener('click', function () {
             this.classList.toggle('active');
             const panel = this.nextElementSibling;
+            if (!panel) return;
 
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
@@ -37,18 +40,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const leadForm = document.getElementById('leadForm');
-    // Получатели заявок с формы (Юрий и Алексей) — замените на реальные адреса
-    const LEAD_RECIPIENTS = ['yuriy@donairprom.ru', 'info@donairprom.ru'];
+    const API_URL = 'http://177.3.216.236:5000/api/lead';
 
-    leadForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const v = (id) => document.getElementById(id).value.trim();
-        const body = `Имя: ${v('name')}\nТелефон: ${v('phone')}\nУдобное время для звонка: ${v('time')}\n\n${v('message')}`;
-        const subject = 'Заявка с сайта ДонЭйрПром';
-        window.location.href = `mailto:${LEAD_RECIPIENTS.join(',')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        leadForm.reset();
-    });
+    const leadForm = document.getElementById('leadForm');
+    const tsField = document.getElementById('formTs');
+
+    function stampForm() {
+        if (tsField) tsField.value = Date.now();
+    }
+    stampForm();
+
+    if (leadForm) {
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const v = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            };
+
+            const payload = {
+                name:    v('name'),
+                phone:   v('phone'),
+                time:    v('time'),
+                message: v('message'),
+                website: v('website'),
+                ts:      Number(v('formTs')) || Date.now(),
+            };
+
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+            }
+
+            try {
+                const resp = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                const data = await resp.json().catch(() => ({}));
+                console.log('Lead response:', resp.status, data);
+
+                if (resp.ok && data.ok) {
+                    alert('Спасибо! Заявка отправлена, мы свяжемся с вами.');
+                    leadForm.reset();
+                    stampForm();
+                } else {
+                    alert('Не удалось отправить. Детали: ' + (data.error || resp.status));
+                }
+            } catch (err) {
+                console.error('Network error:', err);
+                alert('Ошибка сети. Попробуйте позже.');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            }
+        });
+    }
 
     const grid3 = document.querySelector('.grid-3');
     const cards = grid3 ? grid3.querySelectorAll('.card') : [];
@@ -64,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dots = sliderDotsContainer.querySelectorAll('.slider-dot');
         grid3.addEventListener('scroll', () => {
             const scrollPos = grid3.scrollLeft;
-            const cardWidth = cards[0].offsetWidth + 15; // учет gap
+            const cardWidth = cards[0].offsetWidth + 15;
             const activeIdx = Math.round(scrollPos / cardWidth);
             dots.forEach((dot, idx) => {
                 dot.classList.toggle('active', idx === activeIdx);
