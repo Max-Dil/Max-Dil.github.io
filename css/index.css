@@ -5,6 +5,12 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -35,7 +41,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "kern", "liga";
-    overflow-x: hidden;
 }
 
 a {
@@ -621,6 +626,29 @@ textarea.form-control {
     box-shadow: 0 0 0 3px rgba(0, 74, 140, 0.1);
 }
 
+/* Переключатель физлицо / юрлицо */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-group .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.radio-option input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
 .checkbox-group {
     display: flex;
     align-items: flex-start;
@@ -672,7 +700,7 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -722,7 +750,28 @@ footer {
 
     .logo img {
         max-height: 70px;
+        max-width: 100%;
     }
+
+    .responsive-img {
+        object-position: left center;
+    }
+
+    .hero-img-container {
+        height: 260px;
+    }
+
+    .request-section {
+        background-position: 15% center;
+    }
+
+    .header-main { gap: 8px; }
+    .logo-block { min-width: 0; }
+    .header-contacts a,
+    .contacts-col a,
+    .footer-col li { overflow-wrap: anywhere; }
+    .card, .contact-form { min-width: 0; }
+    .contact-form { padding: 25px 20px; }
 
     .grid-3 {
         display: flex;
@@ -791,6 +840,9 @@ footer {
         right: auto;
         transform: none;
         flex-direction: row;
+        flex-wrap: wrap;
+        white-space: normal;
+        min-width: 0;
         align-items: center;
         gap: 12px;
         font-size: 13px;

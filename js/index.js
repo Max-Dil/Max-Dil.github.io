@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // const API_URL = 'http://177.3.216.236:5000/api/lead';
     const API_URL = 'https://nesworld.ru/donairprom/api/lead';
 
     const leadForm = document.getElementById('leadForm');
@@ -51,6 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     stampForm();
 
+    const clientRadios = document.querySelectorAll('input[name="clientType"]');
+    const companyGroup = document.getElementById('companyGroup');
+    const companyInput = document.getElementById('company');
+
+    function toggleCompany() {
+        const checked = document.querySelector('input[name="clientType"]:checked');
+        const isLegal = checked && checked.value === 'legal';
+        if (companyGroup) companyGroup.style.display = isLegal ? 'block' : 'none';
+        if (companyInput) {
+            companyInput.required = isLegal;
+            if (!isLegal) companyInput.value = '';
+        }
+    }
+    clientRadios.forEach(r => r.addEventListener('change', toggleCompany));
+    toggleCompany();
+
     if (leadForm) {
         leadForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -60,7 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return el ? el.value.trim() : '';
             };
 
+            const checkedType = document.querySelector('input[name="clientType"]:checked');
+
             const payload = {
+                clientType: checkedType ? checkedType.value : 'individual',
+                company: v('company'),
                 name:    v('name'),
                 phone:   v('phone'),
                 time:    v('time'),
@@ -89,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (resp.ok && data.ok) {
                     alert('Спасибо! Заявка отправлена, мы свяжемся с вами.');
                     leadForm.reset();
+                    toggleCompany();
                     stampForm();
                 } else {
                     alert('Не удалось отправить. Детали: ' + (data.error || resp.status));

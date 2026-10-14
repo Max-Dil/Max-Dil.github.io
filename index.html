@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/index.css?v=2.0">
+    <link rel="stylesheet" href="css/index.css?v=2.1">
 </head>
 <body>
     <div id="preloader">
@@ -77,7 +77,7 @@
                         <img src="images/Gemini_Generated_Image_779cco779cco779c (1).jpg" alt="Сервисное обслуживание">
                     </div>
                     <h3>Сервисное обслуживание</h3>
-                    <p>Сервисное обслуживание, диагностика, техническое обслуживание, ремонт любой сложности, замена расходных материалов, пусконаладка, модернизация, диагностика неисправностей, восстановление работоспособности, гарантийное и послегарантийное обслуживание.</p>
+                    <p>Сервисное обслуживание, диагностика, техническое обслуживание, ремонт любой сложности, замена расходных материалов, пусконаладка, модернизация, диагностика неисправностей, восстановление работоспособности.</p>
                 </div>
                 <div class="card">
                     <div class="card-img-container">
@@ -91,7 +91,7 @@
                         <img src="images/service-spare-parts.jpeg" alt="Поставка запасных частей">
                     </div>
                     <h3>Поставка запасных частей</h3>
-                    <p>Оригинальные и совместимые запасные части нескольких ценовых категорий. Гарантия на большинство запчастей 6 месяцев.</p>
+                    <p>Оригинальные и совместимые запасные части нескольких ценовых категорий.</p>
                 </div>
                 <div class="card">
                     <div class="card-img-container">
@@ -195,6 +195,25 @@
                     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"
                            style="position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0;width:0;"
                            aria-hidden="true">
+
+                    <div class="form-group">
+                        <label>Вы обращаетесь как</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="clientType" value="individual" checked>
+                                <span>Физическое лицо</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="clientType" value="legal">
+                                <span>Юридическое лицо</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="companyGroup" style="display:none;">
+                        <label for="company">Наименование компании</label>
+                        <input type="text" id="company" class="form-control" placeholder="ООО «Название»">
+                    </div>
 
                     <div class="form-group">
                         <label for="name">Ваше Имя и Фамилия</label>
