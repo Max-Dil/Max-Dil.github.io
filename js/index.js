@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // const API_URL = 'http://177.3.216.236:5000/api/lead';
-    const API_URL = 'https://api.nesworld.ru/donairprom/api/lead';
+    const API_URL = 'https://nesworld.ru/donairprom/api/lead';
 
     const leadForm = document.getElementById('leadForm');
     const tsField = document.getElementById('formTs');
