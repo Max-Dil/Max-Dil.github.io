@@ -1,0 +1,31 @@
+# Apache. Главное зеркало: https://donairprom.ru
+RewriteEngine On
+
+# 1) Кириллический домен (в т.ч. punycode) и www -> главное зеркало, 301
+RewriteCond %{HTTP_HOST} ^(www\.)?donairprom\.ru$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(www\.)?xn--d1akjcecghb0k\.xn--p1ai$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(www\.)?донэйрпром\.рф$ [NC]
+RewriteCond %{HTTP_HOST} !^donairprom\.ru$ [NC]
+RewriteRule ^(.*)$ https://donairprom.ru/$1 [R=301,L]
+
+# 2) HTTP -> HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://donairprom.ru/$1 [R=301,L]
+
+# 3) index.html -> /
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://donairprom.ru/ [R=301,L]
+
+# Кэш и сжатие
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
