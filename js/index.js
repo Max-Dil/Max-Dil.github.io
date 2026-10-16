@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const API_URL = 'https://nesworld.ru/donairprom/api/lead';
+    // const API_URL = '';
 
-    const leadForm = document.getElementById('leadForm');
+    // const leadForm = document.getElementById('leadForm');
     const tsField = document.getElementById('formTs');
 
     function stampForm() {
@@ -61,60 +61,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     stampForm();
 
-    if (leadForm) {
-        leadForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    // if (leadForm) {
+    //     leadForm.addEventListener('submit', async (e) => {
+    //         e.preventDefault();
 
-            const v = (id) => {
-                const el = document.getElementById(id);
-                return el ? el.value.trim() : '';
-            };
+    //         const v = (id) => {
+    //             const el = document.getElementById(id);
+    //             return el ? el.value.trim() : '';
+    //         };
 
-            const payload = {
-                company: v('company'),
-                name:    v('name'),
-                phone:   v('phone'),
-                time:    v('time'),
-                message: v('message'),
-                website: v('website'),
-                ts:      Number(v('formTs')) || Date.now(),
-            };
+    //         const payload = {
+    //             company: v('company'),
+    //             name:    v('name'),
+    //             phone:   v('phone'),
+    //             time:    v('time'),
+    //             message: v('message'),
+    //             website: v('website'),
+    //             ts:      Number(v('formTs')) || Date.now(),
+    //         };
 
-            const submitBtn = leadForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn ? submitBtn.textContent : '';
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Отправка...';
-            }
+    //         const submitBtn = leadForm.querySelector('button[type="submit"]');
+    //         const originalText = submitBtn ? submitBtn.textContent : '';
+    //         if (submitBtn) {
+    //             submitBtn.disabled = true;
+    //             submitBtn.textContent = 'Отправка...';
+    //         }
 
-            try {
-                const resp = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                });
+    //         try {
+    //             const resp = await fetch(API_URL, {
+    //                 method: 'POST',
+    //                 headers: { 'Content-Type': 'application/json' },
+    //                 body: JSON.stringify(payload),
+    //             });
 
-                const data = await resp.json().catch(() => ({}));
-                console.log('Lead response:', resp.status, data);
+    //             const data = await resp.json().catch(() => ({}));
+    //             console.log('Lead response:', resp.status, data);
 
-                if (resp.ok && data.ok) {
-                    alert('Спасибо! Заявка отправлена, мы свяжемся с вами.');
-                    leadForm.reset();
-                    stampForm();
-                } else {
-                    alert('Не удалось отправить. Детали: ' + (data.error || resp.status));
-                }
-            } catch (err) {
-                console.error('Network error:', err);
-                alert('Ошибка сети. Попробуйте позже.');
-            } finally {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                }
-            }
-        });
-    }
+    //             if (resp.ok && data.ok) {
+    //                 alert('Спасибо! Заявка отправлена, мы свяжемся с вами.');
+    //                 leadForm.reset();
+    //                 stampForm();
+    //             } else {
+    //                 alert('Не удалось отправить. Детали: ' + (data.error || resp.status));
+    //             }
+    //         } catch (err) {
+    //             console.error('Network error:', err);
+    //             alert('Ошибка сети. Попробуйте позже.');
+    //         } finally {
+    //             if (submitBtn) {
+    //                 submitBtn.disabled = false;
+    //                 submitBtn.textContent = originalText;
+    //             }
+    //         }
+    //     });
+    // }
 
     const grid3 = document.querySelector('.grid-3');
     const cards = grid3 ? grid3.querySelectorAll('.card') : [];
