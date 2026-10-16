@@ -134,9 +134,15 @@ header {
     display: block;
 }
 
+/* .nav-desktop {
+    display: flex;
+    gap: 30px;
+} */
+
 .nav-desktop {
     display: flex;
     gap: 30px;
+    margin-right: 200px;
 }
 
 .nav-desktop a {
@@ -206,9 +212,23 @@ header {
     gap: 15px;
 }
 
-.header-contacts {
+/* .header-contacts {
     position: absolute;
     right: 195px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    line-height: 1.2;
+    white-space: nowrap;
+    z-index: 10;
+} */
+
+ .header-contacts {
+    position: absolute;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
